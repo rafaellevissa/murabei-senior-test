@@ -1,4 +1,3 @@
-# Escolha uma imagem Node.js oficial
 FROM node:20-alpine AS builder
 
 WORKDIR /app

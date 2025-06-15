@@ -1,2 +1,2 @@
-source version
+source ./version
 docker build -t frontend:latest .
