@@ -31,7 +31,10 @@ export function FilterBar() {
   return (
     <div className="w-full">
       <div className="relative">
-        <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+        <div
+          className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400"
+          data-testid="filter-icon"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5"
@@ -50,6 +53,7 @@ export function FilterBar() {
         </div>
 
         <Input
+          data-testid="filter-input"
           type="text"
           placeholder={`Pesquisar por ${selectedField}`}
           value={filters[selectedField] || ""}
@@ -59,13 +63,19 @@ export function FilterBar() {
 
         <Select value={selectedField} onValueChange={handleSelectChange}>
           <SelectTrigger
+            data-testid="filter-select-trigger"
             className="absolute top-1/2 right-2 w-24 transform -translate-y-1/2 bg-transparent border-none shadow-none px-2 py-1 text-sm focus:ring-0 focus:outline-none"
           >
-            <SelectValue placeholder="Campo" />
+            <SelectValue placeholder="Campo" data-testid="filter-select-value" />
           </SelectTrigger>
-          <SelectContent>
+
+          <SelectContent data-testid="filter-select-content">
             {filterOptions.map(({ label, value }) => (
-              <SelectItem key={value} value={value}>
+              <SelectItem
+                key={value}
+                value={value}
+                data-testid={`filter-select-item-${value}`}
+              >
                 {label}
               </SelectItem>
             ))}
@@ -73,12 +83,13 @@ export function FilterBar() {
         </Select>
       </div>
 
-      <div className="mt-2 flex flex-wrap gap-2">
+      <div className="mt-2 flex flex-wrap gap-2" data-testid="filter-tags-container">
         {Object.entries(filters).map(([field, value]) =>
           value ? (
             <div
               key={field}
               className="flex items-center rounded-md bg-gray-200 px-3 py-1 text-sm"
+              data-testid={`filter-tag-${field}`}
             >
               <span className="capitalize">{field}:</span>&nbsp;
               <span className="font-medium">{value}</span>
@@ -87,6 +98,7 @@ export function FilterBar() {
                 size="sm"
                 className="ml-2 p-0"
                 onClick={() => handleOnClickRemoveFilter(field as typeof selectedField)}
+                data-testid={`filter-tag-remove-btn-${field}`}
               >
                 ×
               </Button>

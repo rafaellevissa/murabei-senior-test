@@ -17,7 +17,7 @@ interface Document {
   id: number;
   author: string;
   title: string;
-  biography: string;
+  author_bio: string;
 }
 
 export function DocumentTable() {
@@ -83,7 +83,7 @@ export function DocumentTable() {
       },
     },
     {
-      accessorKey: "biography",
+      accessorKey: "author_bio",
       header: "Biografia",
       cell: ({ getValue }) => {
         const bio = getValue<string>() ?? "";

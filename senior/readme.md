@@ -93,6 +93,15 @@ cd ../backend
 ./build.bash
 ```
 
+## Executando os testes
+
+Com o ambiente em execução, acesse o diretório do **frontend** e rode o comando:
+
+```bash
+cd senior/frontend/codes
+npm run test:e2e:headless
+```
+
 ## Subir os containers
 
 Após o build das imagens, execute o Docker Compose:
