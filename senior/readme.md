@@ -76,27 +76,44 @@ npm run dev
 
 Acesse: [http://localhost:3000](http://localhost:3000)
 
----
 
-## Como Executar com Docker Compose
+# Como Executar com Docker Compose
 
-Pré-requisitos: Docker e Docker Compose instalados.
+Pré-requisitos: **Docker** e **Docker Compose** instalados.
+
+## Build das imagens
+
+Antes de subir o ambiente, é necessário gerar as imagens Docker do **frontend** e do **backend**:
 
 ```bash
-cd senior/_docker-compose
-bash docker-up.bash
+cd senior/frontend
+./build.bash
+
+cd ../backend
+./build.bash
 ```
 
-* **Frontend**: [http://localhost:3000](http://localhost:3000)
-* **Backend**: [http://localhost:5000/api/v1/books](http://localhost:5000/api/v1/books)
+## Subir os containers
 
-Para parar:
+Após o build das imagens, execute o Docker Compose:
+
+```bash
+cd ../_docker-compose
+./docker-up.bash
+```
+
+Os serviços ficarão disponíveis em:
+
+* **Frontend**: [http://localhost:3000](http://localhost:3000)
+* **Backend**: [http://localhost:5000/api/v1/books](http://localhost:5000)
+
+## Parar o ambiente
+
+Para parar os containers:
 
 ```bash
 docker compose down
 ```
-
----
 
 ## Endpoints Disponíveis
 
