@@ -1,4 +1,4 @@
-#!/Users/acf/Documents/Github/murabei/01__backend/codes/venv/bin/python3.11
+#!/home/cleiton/Documents/areopagus/internal/etc/challenges/murabei-senior-test/senior/backend/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
