@@ -43,7 +43,6 @@ export function DocumentTable() {
         const json = await res.json();
 
         const data: Document[] = json.data;
-        console.log(json)
         setDocuments(data);
         setTotal(json.total);
       } catch (err) {
